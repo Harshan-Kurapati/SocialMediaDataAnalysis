@@ -1,69 +1,100 @@
-# Auto MPG Dataset Analysis
+Auto MPG Analysis and Linear Regression
 
-Welcome to the **Auto MPG Dataset Analysis** repository! This project explores and analyzes the classic **Auto MPG Dataset**, focusing on data preprocessing, exploratory data analysis (EDA), and deriving insights from automobile performance metrics.
+This project involves the analysis of the Auto MPG dataset, which provides data on the fuel efficiency of cars along with their specifications. The analysis includes cleaning, visualization, and building a linear regression model to predict fuel efficiency (miles per gallon, mpg).
 
-## 🚗 Dataset Description
+Project Overview
 
-The Auto MPG dataset provides data for various automobile models and their respective miles per gallon (MPG) performance. Key features include:
+This project demonstrates:
 
-- `mpg`: Miles per gallon
-- `cylinders`: Number of cylinders
-- `displacement`: Engine displacement (in cubic inches)
-- `horsepower`: Horsepower
-- `weight`: Vehicle weight
-- `acceleration`: Time to accelerate from 0 to 60 mph (in seconds)
-- `model_year`: Year of manufacture
-- `origin`: Origin of the car (1: USA, 2: Europe, 3: Japan)
-- `car_name`: Name of the car
+Data Cleaning: Handling missing and incorrect values.
+Exploratory Data Analysis (EDA): Using visualization techniques to identify trends and outliers.
+Feature Engineering: Standardizing features for machine learning models.
+Linear Regression: Implementing a linear regression model from scratch and comparing its performance with Scikit-learn's implementation.
+Table of Contents
 
-## 🛠️ Key Objectives
+Installation
+Dataset
+Project Workflow
+Key Insights
+Conclusion
+License
+Installation
 
-1. **Data Cleaning:** Handle missing or invalid data entries to ensure consistency.
-2. **Data Exploration:** Perform descriptive statistics and visualization to understand the data distribution and trends.
-3. **Feature Engineering:** Explore relationships between variables and create new features where applicable.
-4. **Modeling (Optional):** Use the dataset to build predictive models for estimating MPG based on other features.
+To run this project, ensure you have the following libraries installed:
 
-## 📂 Repository Structure
+pip install numpy pandas matplotlib seaborn scikit-learn
+Dataset
 
-- **`AutoMpg.ipynb`**: Main Jupyter Notebook containing the analysis and code implementation.
-- **`README.md`**: This file provides an overview of the project.
-- **`data/`**: (Optional) Directory for storing the dataset files.
-- **`results/`**: (Optional) Directory for storing results, plots, or models.
+The Auto MPG dataset includes the following attributes:
 
-## 🚀 Getting Started
+mpg: Miles per gallon (fuel efficiency).
+cylinders: Number of engine cylinders.
+displacement: Engine displacement.
+horsepower: Engine horsepower.
+weight: Vehicle weight.
+acceleration: Acceleration from 0-60 mph.
+model_year: Year of manufacture.
+origin: Country of origin.
+car_name: Name of the car (not used in regression analysis).
+Project Workflow
 
-### Prerequisites
+Data Cleaning:
+Replaced invalid horsepower values ("?") with the median value after converting the column to numeric.
+Checked for missing values and handled them appropriately.
+Removed the car_name column, as it is non-numeric and not useful for regression.
+Exploratory Data Analysis (EDA):
+Visualized outliers in numerical columns using boxplots.
+Analyzed feature correlations using a heatmap to identify relationships between variables.
+Feature Engineering:
+Standardized features using StandardScaler for better performance in regression models.
+Linear Regression:
+Built a custom linear regression model using gradient descent.
+Evaluated the custom model using Mean Squared Error (MSE).
+Compared performance with Scikit-learn's LinearRegression model.
+Evaluation:
+Compared MSE of custom and Scikit-learn implementations:
+Custom implementation MSE: 8.52
+Scikit-learn implementation MSE: 7.91
+Key Code Snippets
+Correlation Heatmap:
+plt.figure(figsize=(10, 8))
+sns.heatmap(df[numerical_cols].corr(), cmap="coolwarm", annot=True)
+plt.title("Correlation Matrix")
+plt.show()
+Custom Linear Regression Implementation:
+def linear_reg(X, y, alpha, Iteration):
+    X["bias"] = 1
+    theta = np.zeros(X.shape[1])
+    X = X.values
+    y = y.values
+    m = len(X)
+    cost_list = []
+    for i in range(Iteration):
+        h_theta = np.dot(X, theta)
+        cost = (1/(2*m)) * np.sum((h_theta - y)**2)
+        gradient = (1/m) * np.dot(X.T, (h_theta - y))
+        theta -= alpha * gradient
+        cost_list.append(cost)
+    return theta, cost_list
+Key Insights
 
-- Python 3.8+
-- Jupyter Notebook
-- Libraries: `pandas`, `numpy`, `matplotlib`, `seaborn`
+Correlations:
+Weight and displacement are negatively correlated with mpg, indicating heavier cars tend to have lower fuel efficiency.
+Horsepower and mpg also show a negative correlation.
+Linear Regression Model:
+Both the custom and Scikit-learn models performed well, with Scikit-learn achieving slightly lower MSE.
+Gradient descent was successfully implemented and visualized using the cost function over iterations.
+Conclusion
 
-### Installation
+This project showcases end-to-end handling of a regression problem:
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/auto-mpg-analysis.git
-Navigate to the repository:
-cd auto-mpg-analysis
-Install the required libraries:
-pip install -r requirements.txt
-Usage
-Open the Jupyter Notebook:
-jupyter notebook AutoMpg.ipynb
-Run the cells step-by-step to see the analysis and visualizations.
-📊 Highlights of the Analysis
+Cleaning and preparing data for machine learning.
+Implementing a linear regression model from scratch.
+Comparing custom implementation with Scikit-learn for validation.
+Future improvements could involve:
 
-Statistical summaries of automobile features.
-Visualization of trends, such as the relationship between horsepower and MPG.
-Insights into changes in vehicle design over different model years.
-🤝 Contributions
+Exploring additional features or interactions between variables.
+Applying advanced regression techniques such as Ridge or Lasso regression.
+License
 
-Contributions are welcome! If you want to contribute, please fork the repository, create a new branch, and submit a pull request.
-
-📝 License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-💡 Acknowledgments
-
-This analysis is based on the Auto MPG dataset, which is a commonly used dataset in the UCI Machine Learning Repository.
+This project is licensed under the MIT License.
