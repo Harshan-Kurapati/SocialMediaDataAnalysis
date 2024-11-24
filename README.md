@@ -1,4 +1,4 @@
-# Auto MPG Dataset Analysis
+# Auto MPG Dataset - Machine Learning Model
 
 ## Overview
 This project analyzes the Auto MPG dataset, which contains information on various cars' fuel efficiency and other characteristics. The dataset includes features such as miles per gallon (mpg), engine displacement, horsepower, weight, acceleration, and more. This analysis aims to explore the dataset, handle any missing values, perform data visualization, and apply preprocessing techniques to prepare the data for modeling.
