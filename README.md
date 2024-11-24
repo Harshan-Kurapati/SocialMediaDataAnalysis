@@ -3,6 +3,8 @@
 ## Overview
 This project analyzes the Auto MPG dataset, which contains information on various cars' fuel efficiency and other characteristics. The dataset includes features such as miles per gallon (mpg), engine displacement, horsepower, weight, acceleration, and more. This analysis aims to explore the dataset, handle any missing values, perform data visualization, and apply preprocessing techniques to prepare the data for modeling.
 
+Additionally, this project takes inspiration from methodologies used in social media analytics, emphasizing a systematic approach to understanding data characteristics, performing data cleaning, and applying relevant statistical techniques.
+
 ## Dataset
 The dataset used in this project is the [Auto MPG dataset](https://archive.ics.uci.edu/ml/datasets/auto+mpg). It contains information about the fuel consumption of cars from various manufacturers in the 1970s and 1980s. The dataset includes the following columns:
 
@@ -25,6 +27,7 @@ The analysis performed in this notebook includes:
 4. **Data Preprocessing**: Scaling and encoding features as needed for machine learning models.
 5. **Data Visualization**: Using visual tools like Matplotlib and Seaborn to gain insights from the data.
 6. **Model Training**: Splitting the data into training and test sets, and applying machine learning models to predict mpg.
+7. **Statistical Analysis**: Drawing parallels with social media analytics techniques to derive deeper insights from the data.
 
 ## Requirements
 To run this notebook, you will need the following Python packages:
@@ -45,7 +48,7 @@ jupyter notebook AutoMpg.ipynb
 ```
 
 ## Results
-The analysis provides insights into the factors affecting the fuel efficiency of cars, such as the number of cylinders, displacement, and weight. Visualizations are provided to explore the relationships between these variables.
+The analysis provides insights into the factors affecting the fuel efficiency of cars, such as the number of cylinders, displacement, and weight. Visualizations are provided to explore the relationships between these variables. Additionally, statistical approaches similar to those used in social media analytics have been applied to uncover hidden trends.
 
 ## License
 This project is licensed under the MIT License.
