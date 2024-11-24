@@ -1,6 +1,3 @@
-Here’s your README file formatted for **Markdown (`README.md`)**:
-
-```markdown
 # Auto MPG Analysis and Linear Regression
 
 This project involves the analysis of the **Auto MPG dataset**, which provides data on the fuel efficiency of cars along with their specifications. The analysis includes cleaning, visualization, and building a linear regression model to predict fuel efficiency (miles per gallon, `mpg`).
@@ -119,6 +116,5 @@ Future improvements could involve:
 ## License
 
 This project is licensed under the MIT License.
-```
 
-This file is structured for easy readability on GitHub and supports Markdown rendering. You can copy-paste it into your repository's `README.md` file.
+---
